@@ -1,0 +1,65 @@
+---
+layout: default
+title: es6|Destructuring
+---
+
+<h2>{{ page.title }}</h2>
+
+<p>学习es6 <small>https://es6.ruanyifeng.com/#docs/let</small></p>
+
+<p>{{ page.date | date_to_string }}</p>
+
+
+<pre>
+  let [a, b, c] = [1, 2, 3];
+  let [head, ...tail] = [1, 2, 3, 4];
+  head // 1
+  tail // [2, 3, 4]
+
+  let [x = 1] = [null];
+  x // null
+
+  function f() {
+    console.log('aaa');
+  }
+  
+  let [x = f()] = [1];
+
+  let { foo: baz } = { foo: 'aaa', bar: 'bbb' };
+  baz // "aaa"
+
+  function move({x, y} = { x: 0, y: 0 }) {
+    return [x, y];
+  }
+  move({x: 3, y: 8}); // [3, 8]
+  move({x: 3}); // [3, undefined]
+  move({}); // [undefined, undefined]
+  move(); // [0, 0]
+
+  // 返回一个数组
+  function example() {
+    return [1, 2, 3];
+  }
+  let [a, b, c] = example();
+  // 返回一个对象
+  function example() {
+    return {
+      foo: 1,
+      bar: 2
+    };
+  }
+  let { foo, bar } = example();
+</pre>
+
+<p>解构赋值，本质上，这种写法属于“模式匹配”</p>
+
+<ul>
+  <div>变量解构赋值使用注意点</div>
+  <li>如果解构不成功，变量的值就等于undefined。</li>
+  <li>如果等式右侧是不可遍历的结构，那么将会报错（Iterator接口）</li>
+  <li>默认值，内部使用===判断，只有严格等于undefined的时候才会使用默认值</li>
+  <li>如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。</li>
+  <li>对象的解构赋值可以取到继承的属性。</li>
+  <li>尽量不要讲已经声明的变量用于解构赋值</li>
+  <li>原型上的属性也可以被用于解构赋值</li>
+</ul>
