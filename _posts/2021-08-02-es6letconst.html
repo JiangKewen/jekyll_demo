@@ -1,0 +1,34 @@
+---
+layout: default
+title: es6|let|const
+---
+
+<h2>{{ page.title }}</h2>
+
+<p>学习es6 <small>https://es6.ruanyifeng.com/#docs/let</small></p>
+
+<p>{{ page.date | date_to_string }}</p>
+
+<code>
+  for (let i = 0; i < 3; i++) {
+    let i = 'abc';
+    console.log(i);
+  }
+  // abc
+  // abc
+  // abc
+</code>
+<span>上面代码正确运行，输出了 3 次abc。这表明函数内部的变量i与循环变量i不在同一个作用域，有各自单独的作用域（同一个作用域不可使用 let 重复声明同一个变量）。</span>
+<span>for小括号里的是父块作用域，大括号里的是子块作用域</span>
+
+<ul>
+  <div>let|const的一些注意点</div>
+  <li>声明前不能使用（暂时性死区）</li>
+  <li>不允许重复声明</li>
+  <li>存在块级作用域</li>
+  <li>块级作用域下函数的声明，es6浏览器采用了var的形式，尽量不要再块级作用域声明函数，优先使用函数表达式</li>
+  <li>const实际上保证的是变量指向的那个内存地址所保存的数据不得改动。可以用Object.freeze()冻结对象及其对象属性</li>
+  <li>es6声明变量的6中方式：var/function/let/const/import/class</li>
+  <li>let|const全局变量与顶层对象的属性脱钩</li>
+  <li>引入globalThis作为顶层对象</li>
+</ul>
