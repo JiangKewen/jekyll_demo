@@ -13,7 +13,7 @@ title: 宝贝
 <a href="{{ site.baseurl }}">首页</a>
 
 <section class="loki-box center">
-  那个扎丸子头的宝贝，我爱你
+  宝贝，我爱你
   <p>
     <span id="start">2021-01-01</span><span>&nbsp;&nbsp;</span><span id="to">2021-08-03</span>
   </p>
@@ -27,7 +27,7 @@ title: 宝贝
   const startTime = new Date('2021-01-01 00:00')
   const TimesDOM = document.querySelector('#times')
 
-  setTimeout(() => {
+  setInterval(() => {
     const ourTime = getTimes()
     TimesDOM.innerHTML = ourTime
   }, 1000);
