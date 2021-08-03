@@ -1,0 +1,48 @@
+---
+layout: loki
+title: 宝贝
+---
+
+<style>
+  .center {
+    margin: 0 auto;
+    width: fit-content;
+  }
+</style>
+
+<a href="{{ site.baseurl }}">首页</a>
+
+<section class="loki-box center">
+  那个扎丸子头的宝贝，我爱你
+  <p>
+    <span id="start">2021-01-01</span><span>&nbsp;&nbsp;</span><span id="to">2021-08-03</span>
+  </p>
+  <br>
+  <br>
+  <p><span id="times"></span></p>
+</section>
+
+<script>
+  const EndDOM = document.querySelector('#to')
+  const startTime = new Date('2021-01-01 00:00')
+  const TimesDOM = document.querySelector('#times')
+
+  setTimeout(() => {
+    const ourTime = getTimes()
+    TimesDOM.innerHTML = ourTime
+  }, 1000);
+  
+  function getTimes() {
+    const newTime = new Date()
+    const ourTimeYear = (newTime.getFullYear() - startTime.getFullYear() + '').padStart(2, '0')
+    const ourTimeMoth = (newTime.getMonth() - startTime.getMonth() + '').padStart(2, '0')
+    const ourTimeDay = (newTime.getDate() - startTime.getDate() + '').padStart(2, '0')
+    const ourTimeHour = (newTime.getHours() - startTime.getHours() + '').padStart(2, '0')
+    const ourTimeMinute = (newTime.getMinutes() - startTime.getMinutes() + '').padStart(2, '0')
+    const ourTimeSeconds = (newTime.getSeconds() - startTime.getSeconds() + '').padStart(2, '0')
+
+    const ourTime = `${ourTimeYear}年${ourTimeMoth}月${ourTimeDay}日${ourTimeHour}时${ourTimeMinute}分${ourTimeSeconds}秒`
+    return ourTime
+  }
+
+</script>
