@@ -27,9 +27,10 @@ title: 宝贝
   const startTime = new Date('2021-01-01 00:00')
   const TimesDOM = document.querySelector('#times')
 
+  TimesDOM.innerHTML = getTimes()
+
   setInterval(() => {
-    const ourTime = getTimes()
-    TimesDOM.innerHTML = ourTime
+    TimesDOM.innerHTML = getTimes()
   }, 1000);
   
   function getTimes() {
